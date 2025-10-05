@@ -73,6 +73,10 @@ function updateHighScores(obj) {
   console.log(highScores[game]);
 }
 
+function handleHead(req, res, params) {
+  res.writeHead(200);
+  res.end();
+}
 
 function handleGet(req, res, params) {
   const gameName = params.get("game");
@@ -152,6 +156,10 @@ const server = http.createServer((req, res) => {
   deleteExpiredDailyScores();
 
   switch (req.method) {
+    case "HEAD":
+      handleHead(req, res, params);
+      break;
+
     case "GET":
       handleGet(req, res, params);
       break;
