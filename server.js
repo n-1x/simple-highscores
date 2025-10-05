@@ -186,5 +186,5 @@ const server = http.createServer((req, res) => {
 });
 
 loadHighScores();
-server.listen(8081);
+server.listen(process.env.PORT || 8081);
 console.log("Listening");
